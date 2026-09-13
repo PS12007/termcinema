@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "termcinema"
+version = "1.0.0"
+description = "Play local videos, GIFs, and YouTube links as colored text in your terminal."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+dependencies = [
+    "numpy>=1.24",
+    "opencv-python>=4.8",
+]
+
+[project.optional-dependencies]
+youtube = ["yt-dlp>=2024.1.1"]
+stats = ["psutil>=5.9"]
+all = ["yt-dlp>=2024.1.1", "psutil>=5.9"]
+
+[project.scripts]
+termcinema = "termcinema.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["termcinema*"]
