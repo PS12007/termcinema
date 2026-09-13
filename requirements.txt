@@ -1,15 +1,10 @@
-# Core (required)
 numpy>=1.24
 opencv-python>=4.8
-
-# Optional: YouTube / arbitrary URL playback
 yt-dlp>=2024.1.1
+sounddevice>=0.4.6
+numba>=0.58; python_version < '3.14'
 
-# Optional: CPU/memory stats in the status bar
-psutil>=5.9
-
-# System requirement (not pip-installable): FFmpeg must be on PATH
-# for audio playback (ffplay) and for OpenCV's video backend.
+# System requirement: ffmpeg (and ffprobe) on your PATH
+#   Windows: winget install Gyan.FFmpeg
 #   macOS:   brew install ffmpeg
-#   Ubuntu:  sudo apt install ffmpeg
-#   Windows: https://ffmpeg.org/download.html (add to PATH)
+#   Linux:   sudo apt install ffmpeg

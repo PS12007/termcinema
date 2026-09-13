@@ -4,23 +4,35 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "termcinema"
-version = "1.0.0"
-description = "Play local videos, GIFs, and YouTube links as colored text in your terminal."
+version = "2.0.0"
+description = "Watch anything in your terminal: files, YouTube, webcams and more, rendered with sub-cell block art or real pixels."
 readme = "README.md"
 requires-python = ">=3.10"
 license = { text = "MIT" }
+keywords = ["terminal", "video", "player", "youtube", "ascii", "sixel", "kitty", "tui"]
+classifiers = [
+    "Environment :: Console",
+    "Topic :: Multimedia :: Video :: Display",
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
 dependencies = [
     "numpy>=1.24",
     "opencv-python>=4.8",
+    "yt-dlp>=2024.1.1",
+    "sounddevice>=0.4.6",
+    "numba>=0.58; python_version < '3.14'",
 ]
 
 [project.optional-dependencies]
-youtube = ["yt-dlp>=2024.1.1"]
-stats = ["psutil>=5.9"]
-all = ["yt-dlp>=2024.1.1", "psutil>=5.9"]
+dev = ["pytest>=7"]
 
 [project.scripts]
 termcinema = "termcinema.cli:main"
 
 [tool.setuptools.packages.find]
 include = ["termcinema*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
